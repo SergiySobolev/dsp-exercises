@@ -1,10 +1,10 @@
 L = 256;
 m = L/2;
-e = 1.4;
+e = 50;
 
 r=1:L;
 
-t = 1./(1+(m./r).^e);
+t = 1./(1+((m./r).^e));
 
 I = imread('coins.png');
 set(0,'defaultfigureposition',[150,250,1200,600]);
