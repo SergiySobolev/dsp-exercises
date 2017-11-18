@@ -25,9 +25,8 @@ function fi = aaimfilter(I, N)
     for i=halfN+1:m-halfN
         BIf = I(i-halfN:i+halfN, 1:N);
         v = sum(BIf(:));
-        for j=halfN+1:n-halfN-5
-            r=floor(v/N2);
-            RI(i,j) = r;
+        for j=halfN+1:n-halfN-5           
+            RI(i,j) = v;
             curF=I(i-halfN:i+halfN, j-halfN:j-halfN);
             nextF=I(i-halfN:i+halfN, j+halfN+1:j+halfN+1);
             dif = minus(double(nextF),double(curF));
@@ -36,6 +35,6 @@ function fi = aaimfilter(I, N)
         end
     end
     
-    fi = mat2gray(RI);    
+    fi = mat2gray(floor(RI./N2));    
 end
 
